@@ -1,4 +1,5 @@
 # harborprojet
+Lucas, Nicolas et Raphael
 
 Initialisation Git:
 		$ mkdir TPGitlab
