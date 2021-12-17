@@ -1,0 +1,14 @@
+hello:
+  script:
+    - echo "Hello World !"
+
+test:
+  image: python
+  script:
+    - python test.py
+
+lint:
+  image: python
+  script:
+    - pip install pylint
+    - pylint *.py

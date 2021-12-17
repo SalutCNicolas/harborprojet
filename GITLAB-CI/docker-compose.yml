@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  web:
+    image: 'gitlab/gitlab-ce:latest'
+    hostname: 'gitlab.example.com'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://gitlab.example.com'
+    ports:
+      - '80:80'
+      - '22:22'
+    volumes:
+      - '/home/nicolas/Documents/TPGITLAB/config:/etc/gitlab'
+      - '/home/nicolas/Documents/TPGITLAB/logs:/var/logs/gitlab'
+      - '/home/nicolas/Documents/TPGITLAB/data:/var/opt/gitlab'
+  runner:
+    image: 'gitlab/gitlab-runner:latest'
+    restart: always
+    volumes:
+      - /home/nicolas/Documents/gitlab-runner/config:/etc/gitlab-runner
+      - /home/nicolas/Documents/var/run/docker.sock:/var/run/docker.sock:ro
